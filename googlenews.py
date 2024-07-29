@@ -17,8 +17,17 @@ webdriver_service = Service('chromedriver.exe')
 
 driver = webdriver.Chrome(service=webdriver_service, options=chrome_options)
 
-countries = ['India', 'Nepal', 'Bhutan']
-csv_file = "asian_countries.csv"
+countries = [
+    "Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cape Verde", "Cameroon",
+    "Central African Republic", "Chad", "Comoros", "Democratic Republic of the Congo",
+    "Republic of the Congo", "Djibouti", "Egypt", "Equatorial Guinea", "Eritrea", "Eswatini (Swaziland)",
+    "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Ivory Coast (Côte d'Ivoire)",
+    "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali", "Mauritania", "Mauritius",
+    "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda", "São Tomé and Príncipe", "Senegal",
+    "Seychelles", "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Sudan", "Tanzania", "Togo",
+    "Tunisia", "Uganda", "Zambia", "Zimbabwe", "Ocean"
+]
+csv_file = "africa_and_oceana.csv"
 
 # Define the classify_news function
 def classify_news(title):
@@ -62,7 +71,7 @@ with open(csv_file, mode='w', newline='', encoding='utf-8') as file:
             search_bar.send_keys(search_query)
             search_bar.send_keys(Keys.RETURN)
 
-            time.sleep(7)
+            time.sleep(5)
 
             articles = driver.find_elements(By.CLASS_NAME, 'JtKRv')
             for article in articles:
